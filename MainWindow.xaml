@@ -1,0 +1,43 @@
+﻿<Window x:Class="SMSaveOutfitUnlocker.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:gif="clr-namespace:XamlAnimatedGif;assembly=XamlAnimatedGif"
+        xmlns:ext="clr-namespace:Nukepayload2.UI.Xaml;assembly=Nukepayload2.UI.Win32" 
+        xmlns:ui="http://schemas.modernwpf.com/2019"
+        mc:Ignorable="d"
+        Title="SMOutfitUnlocker" Height="320" Width="550"
+        WindowStartupLocation="CenterScreen"
+        UseLayoutRounding="True"
+        ui:WindowHelper.UseModernWindowStyle="True"
+        ui:TitleBar.ExtendViewIntoTitleBar="True"
+        ui:ThemeManager.RequestedTheme="Dark"
+        Background="#DD1F1F1F"
+        BorderBrush="{DynamicResource SystemControlForegroundAccentBrush}">
+
+    <Grid Margin="0,0,0,0">
+        <Label Content="ScrapMechanic Outfit Unlocker" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" FontSize="34" FontFamily="Segoe UI Light" />
+
+        <Image gif:AnimationBehavior.SourceUri="/Resources/Neu3.gif" Stretch="Uniform" Margin="25,111,0,0" Height="128" Width="128" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+        <Label Content="Game path:" Margin="180,140,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <Label Content="Savegame:" Margin="180,190,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+
+        <ui:DropDownButton x:Name="GamePathButton" Margin="260,135,25,0" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="30" Content="Choose path">
+            <ui:DropDownButton.Flyout>
+                <ui:MenuFlyout x:Name="GamePathListMenu" Placement="BottomEdgeAlignedRight"/>
+            </ui:DropDownButton.Flyout>
+        </ui:DropDownButton>
+        <ui:DropDownButton x:Name="SaveGameButton" Margin="260,185,25,0" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="30" Content="Choose savegame">
+            <ui:DropDownButton.Flyout>
+                <ui:MenuFlyout x:Name="SaveGameListMenu" Placement="BottomEdgeAlignedRight"/>
+            </ui:DropDownButton.Flyout>
+        </ui:DropDownButton>
+
+        <CheckBox x:Name="CreateBackupCheckBox" Content="Create Backup" Margin="20,0,0,17" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+        <Button x:Name="UnlockButton" Click="StartUnlock_Click" Content="Unlock All Outfits" Margin="0,0,20,20" HorizontalAlignment="Right" VerticalAlignment="Bottom" IsEnabled="False"/>
+
+        <ui:ContentDialog x:Name="contentDialog" Background="#DD1F1F1F" BorderBrush="{DynamicResource SystemControlForegroundAccentBrush}" CloseButtonText="OK"></ui:ContentDialog>
+    </Grid>
+</Window>
