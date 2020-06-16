@@ -8,7 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Neu3.gif" />
     <None Remove="Resources\Neu3.gif" />
   </ItemGroup>
 

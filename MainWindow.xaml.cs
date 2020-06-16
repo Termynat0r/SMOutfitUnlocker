@@ -120,7 +120,12 @@ namespace SMSaveOutfitUnlocker {
 
             //Only open if selection valid
             if (customsFile != null) {
-                uuidStorage = await Deserializer.DeserializeCustomizationOptionsAsync(customsFile);
+                string onError = null;
+                (uuidStorage, onError) = await Deserializer.DeserializeCustomizationOptionsAsync(customsFile);
+                if (uuidStorage == null || onError != null) {
+                    await ShowDialog("Error", onError);
+                    return;
+                }
 
                 //Enable Unlockbutton
                 if (saveFolder != null && uuidStorage != null) UnlockButton.IsEnabled = true;
